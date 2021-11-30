@@ -1,63 +1,57 @@
 #navbar {
-    background-color: rgb(255, 255, 255);
-    position: fixed;
-    top: -70px;
-    width: 100%;
-    display: block;
-    transition: top 0.3s;
-    box-shadow: 0px 0px 11px rgb(250, 242, 242);
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  top: -70px;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+  box-shadow: 0px 0px 11px rgb(250, 242, 242);
+  z-index: 100;
+}
 
-  }
-  
 .nav {
-    display: block;
-    color: #f2f2f2;
-    padding: 15px;
-    font-size: 17px;
-  }
-  
-  
+  display: block;
+  color: #f2f2f2;
+  padding: 15px;
+  font-size: 17px;
+}
 
 .navbar-b {
-    width: 100%;
-    position: absolute;
-    margin-top: -5px;
+  width: 100%;
+  position: absolute;
+  margin-top: -5px;
 }
 .nav-b {
-    display: fixed;
-    color: #ffffff;
-    padding: 15px;
-    font-size: 17px;
+  display: fixed;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 17px;
 }
-.banner img{
-    width: 100%;
+.banner img {
+  width: 100%;
 }
-
 
 .user {
-    width: 80px;
-    height:40px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid black;
+  width: 80px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
 }
-.NavDropdown title{
-    margin-top: 30px;
+.NavDropdown title {
+  margin-top: 30px;
 }
 
-.form-seach-nav{
-    width: 300px;
+.form-seach-nav {
+  width: 300px;
 }
 .caption {
-    color: rgb(255, 255, 255);
-    height: auto;
-    width: 800px;
-    position: relative;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: -300px;
-    font-size: 30px;
-    font-weight: bold;
-    
- 
-    
+  color: rgb(255, 255, 255);
+  height: auto;
+  width: 800px;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -300px;
+  font-size: 30px;
+  font-weight: bold;
 }

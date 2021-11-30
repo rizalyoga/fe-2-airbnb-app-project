@@ -1,19 +1,18 @@
-import NavBar from "../component/navbar";
+// import NavBar from "../component/navbar";
 import CardsKota from "../component/cardHome/card-kota.jsx";
 // import CardsHome from "../component/cardHome/card.jsx";
 import CardCoba from "../component/cardHome/card-coba.jsx";
-import NavBarPage from "../component/navbarPage";
+// import NavBarPage from "../component/navbarPage";
 import NavBarHome from "../component/navbarHome";
 
 const Home = () => {
   return (
     <div>
-    <NavBarHome />
+      <NavBarHome />
       <CardsKota />
       <CardCoba />
       {/* <CardsHome /> */}
     </div>
-
   );
 };
 
