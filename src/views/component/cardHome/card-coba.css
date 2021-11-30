@@ -1,0 +1,36 @@
+.card {
+  border: none;
+  outline: none;
+  background-color: rgb(228, 228, 228);
+  border-radius: 20px;
+}
+
+.card:hover {
+  transform: translateY(-15px) !important;
+  transition: transform 0.3s !important;
+}
+
+.text1 {
+  font-size: 13px;
+  color: #cbcbcb;
+}
+
+.info {
+  line-height: 17px;
+}
+
+.cost span {
+  color: #cecece;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.hotel {
+  background: rgb(253, 247, 247);
+  cursor: pointer;
+}
+
+.hotel .booking {
+  font-size: 90%;
+  font-weight: 500;
+}

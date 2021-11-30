@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Card, Button } from "react-bootstrap";
+import "./card-coba.css";
 
-const CardsHome = () => {
+const CardCoba = () => {
   const [hotel, setHotel] = useState([
     {
       nama: "Gardenia",
@@ -47,21 +48,32 @@ const CardsHome = () => {
 
   return (
     <section className="kota">
-      <div className="card-home-hotel container d-flex justify-content-start flex-column  mt-5">
-        <h2>Inspiration for your Next trip</h2>
-        <div className="cards-container d-flex justify-content-center py-5 my-3 flex-wrap cards-wrap">
-          {hotel.map((el, i) => (
-            <Card className=" mx-auto my-2" style={{ width: "17rem" }} key={i}>
-              <Card.Img variant="top" src={el.image} />
-              <Card.Body>
-                <Card.Title>{el.nama}</Card.Title>
-                <div className="detail mt-0">
-                  {/* <p>Keterangan</p> */}
-                  <p>{el.harga}</p>
+      <div className="card-home-hotel container d-flex justify-content-start flex-column mt-5">
+        <h2 className="fw-bolder">Inspiration for your Next trip</h2>
+        <div className="cards-container d-flex justify-content-start py-5 my-3 flex-wrap cards-wrap">
+          {hotel.map((el, e) => (
+            <div className="col-md-3 mx-0 rounded w-90 ">
+              <div className="card mt-3 mx-2 mt-5">
+                <div className="hotel align-items-center rounded text-center">
+                  <img className="rounded" width="100%" height="200" src={el.image} />
+                  <div className="mt-2 px-2 d-flex justify-content-between">
+                    <h5 className="fw-normal">{el.nama}</h5>
+                    <div className="star  align-items-center">
+                      <i>rating</i>
+                    </div>
+                  </div>
+
+                  {/* card-information */}
+                  <div className="m-1 info">
+                    <span className="text1 d-block">Lorem ipsum dolor sit amet.</span>
+                    <span className="text1">Lorem, ipsum dolor.</span>
+                  </div>
+                  <div className="cost my-1 text-dark">
+                    <span style={{ color: "#4176E7" }}>{el.harga}</span>
+                  </div>
                 </div>
-                <Button variant="primary">Go Detail</Button>
-              </Card.Body>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -69,4 +81,4 @@ const CardsHome = () => {
   );
 };
 
-export default CardsHome;
+export default CardCoba;
