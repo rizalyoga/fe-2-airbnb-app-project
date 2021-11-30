@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.kota h2 {
+  margin-top: 15%;
+}
+
 .row {
   margin-top: 5%;
   display: flex;

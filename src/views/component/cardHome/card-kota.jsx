@@ -5,7 +5,7 @@ import "./cards-kota.css";
 
 const cardsKota = () => {
   return (
-    <section className="kota">
+    <section className="kota mt-5">
       <div className="container mt-5">
         <h2 className="fw-bolder">Inspiration for your Next trip</h2>
         <div className="cards-container">
