@@ -1,0 +1,158 @@
+{
+  "info": {
+    "_postman_id": "b41d1e1e-7240-42ff-9d9b-44f120f3355c",
+    "name": "Project-AirBnb",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get User by ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2Mzc5MTM3MTgsInVzZXJJZCI6MX0.ZUcwX9anFPu8GbmSWxyjqKU_-rVpg3d9ZfS3nXegexQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "nama",
+                  "value": "fafagans",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "fafagans@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "0812341823541",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:8080/jwt/users",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["jwt", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Users",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/users",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User by jwt",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2Mzc5MTM3MTgsInVzZXJJZCI6MX0.ZUcwX9anFPu8GbmSWxyjqKU_-rVpg3d9ZfS3nXegexQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/jwt/users",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["jwt", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "naufal@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "1234",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:8080/login",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2Mzc5MTM3MTgsInVzZXJJZCI6MX0.ZUcwX9anFPu8GbmSWxyjqKU_-rVpg3d9ZfS3nXegexQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/jwt/users",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["jwt", "users"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

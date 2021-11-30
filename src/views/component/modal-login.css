@@ -1,0 +1,46 @@
+.form-container {
+  background: rgb(192, 193, 194);
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.form-container input {
+  background: #eee !important;
+  border: none !important;
+  padding: 12px 15px !important;
+  margin: 8px 0 !important;
+  width: 100% !important;
+}
+
+.submit-login {
+  color: #111 !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding: 12px 35px !important;
+  margin-top: 15px !important;
+  border: 1px solid #a8a8a8 !important;
+  background-color: white;
+  border-radius: 20px !important;
+  text-transform: uppercase !important;
+  transition: transform 80ms ease-in !important;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 240px !important;
+  text-align: center !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #fff !important;
+  font-size: 16px !important;
+  font-weight: 200px !important;
+  transition: border 0.5s;
+  outline: none;
+  color: rgb(41, 41, 41);
+  font-weight: normal;
+}
