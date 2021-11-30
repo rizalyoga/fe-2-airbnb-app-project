@@ -1,9 +1,10 @@
-import NavBar from "../component/navbar";
+import NavBarPage from "../component/navbarPage";
+import NavBarHome from "../component/navbarHome";
 
 const Home = () => {
   return (
     <>
-      <NavBar />
+      <NavBarHome />
     </>
   );
 };
