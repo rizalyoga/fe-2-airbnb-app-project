@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Card, Button } from "react-bootstrap";
-import "./card.css";
 
 const CardsHome = () => {
   const [hotel, setHotel] = useState([
