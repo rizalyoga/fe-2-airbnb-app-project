@@ -1,29 +1,33 @@
 import { Form, Button, Modal } from "react-bootstrap";
 
-function MyVerticallyCenteredModal(props) {
+function MyVerticallyCenteredModalRegister(props) {
   return (
     <Modal {...props} size="xs" aria-labelledby="contained-modal-title-vcenter" centered>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Welcome to Airbnb</Modal.Title>
-      </Modal.Header>
+    <Modal.Header closeButton>
+      <Modal.Title id="contained-modal-title-vcenter">Welcome to Airbnb</Modal.Title>
+    </Modal.Header>
+    <div className="form-container sign-in-container">
       <Modal.Body>
-        <h4 style={{ textAlign: "center" }}>Sign Up</h4>
+        <h5 className="mb-3 fw-bold" style={{ textAlign: "center" }}>
+          Sign Up
+        </h5>
         <Form>
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Input your name" />
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Input your email" />
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" />
-          <Form.Label>Phone Number</Form.Label>
-          <Form.Control type="text" placeholder="+620000" />
+        <input className="input-register" type="text" placeholder="Input your name"   />
+          {/* <Form.Label className="mb-0 label-login">Email</Form.Label> */}
+          <input className="input-register" type="email" placeholder="Input your email"   />
+          {/* <Form.Label className="mb-0 label-login">Password</Form.Label> */}
+          <input className="input-register" type="password" placeholder="password"/>
+          <input className="input-register" type="text" placeholder="Input your phone number"   />
+          <br />
+          <span></span>
+          <Button className="mt-3 submit-login " type="submit" onClick={props.onHide}>
+            Sign Up
+          </Button>
         </Form>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Sign up</Button>
-      </Modal.Footer>
-    </Modal>
+    </div>
+  </Modal>
   );
 }
 
-export default MyVerticallyCenteredModal;
+export default MyVerticallyCenteredModalRegister;
