@@ -31,7 +31,8 @@
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
   width: 240px !important;
   text-align: center !important;
   background: transparent !important;
