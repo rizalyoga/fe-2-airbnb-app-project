@@ -25,6 +25,8 @@ export const postLogin = (payload) => {
         swal(response.data.message);
         // menyimpan token ke local storage
         localStorage.setItem("token", token);
+        // window.location.reload();
+
       })
       .catch((err) => {
         console.log("3, Masuk ERROR:", err.response.data.message);
