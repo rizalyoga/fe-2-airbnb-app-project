@@ -11,28 +11,43 @@ function MyVerticallyCenteredModalLogin(props) {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-  const error = useSelector((setError) => setError);
+  const errorMsg = useSelector((setError) => setError);
   const loading = useSelector((setLoading) => setLoading);
+
+  // const returnErrMessage = () => {
+  //   if (errorMsg) {
+  //     console.log("MASUK SINI UDAH ERROR NYA", errorMsg);
+  //     return <div>{errorMsg}</div>;
+  //   }
+
+  //   return <></>;
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("1.masuk Handle Submit");
     dispatch(allStore.postLogin({ email, password }));
     if (loading) {
-      console.log("MASUK LOADING");
+      // console.log("MASUK LOADING SINI");
       return (
-        <div class="d-flex justify-content-center">
-          <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
+        <Modal {...props} size="xs" aria-labelledby="contained-modal-title-vcenter" centered>
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">Welcome to Airbnb</Modal.Title>
+          </Modal.Header>
+          <div className="form-container sign-in-container">
+            <Modal.Body>
+              <h5 className="mb-3 fw-bold" style={{ textAlign: "center" }}>
+                Sign Up
+              </h5>
+              <>
+                <Spinner animation="border" />
+              </>
+            </Modal.Body>
           </div>
-        </div>
+        </Modal>
       );
     }
   };
-
-  //   if (error) {
-  //     return <div>{error}</div>;
-  //   }
 
   return (
     <Modal {...props} size="xs" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -50,8 +65,9 @@ function MyVerticallyCenteredModalLogin(props) {
             {/* <Form.Label className="mb-0 label-login">Password</Form.Label> */}
             <input className="input-login" type="password" placeholder="password" value={password} onChange={(event) => setPassword(event.target.value)} />
             <br />
+            {/* {returnErrMessage()} */}
             <span></span>
-            <Button className="mt-3 submit-login " type="submit" onClick={props.onHide}>
+            <Button className="mt-3 submit-login " type="submit">
               Sign In
             </Button>
           </Form>

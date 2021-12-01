@@ -8,6 +8,7 @@ import NavBarHome from "../component/navbarHome";
 const Home = () => {
   return (
     <div>
+      {/* <NavBarPage /> */}
       <NavBarHome />
       <CardsKota />
       <CardCoba />

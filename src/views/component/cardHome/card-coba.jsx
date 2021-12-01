@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import "./card-coba.css";
 
 const CardCoba = () => {
-  const [hotel, setHotel] = useState([
+  const [hotel] = useState([
     {
       nama: "Gardenia",
       harga: "200000",
