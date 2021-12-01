@@ -95,27 +95,6 @@ function MyVerticallyCenteredModalRegister(props) {
       </Modal>
       )
     }
-    const Modalloading =() =>{
-      return (
-      <Modal {...props} size="xs" aria-labelledby="contained-modal-title-vcenter" centered>
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">Welcome to Airbnb</Modal.Title>
-        </Modal.Header>
-        <div className="form-container sign-in-container">
-         
-          <Modal.Body>
-            <h5 className="mb-3 fw-bold" style={{ textAlign: "center" }}>
-              Loading
-            </h5>
-            <Form>
-            
-            </Form>
-          </Modal.Body>
-
-        </div>
-      </Modal>
-      )
-    }
 
       return (
         <>      
