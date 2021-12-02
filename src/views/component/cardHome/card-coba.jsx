@@ -47,9 +47,11 @@ const CardCoba = () => {
   ]);
 
   return (
-    <section className="hotel-sec">
+    <div className="hotel-sec">
       <div className="card-home-hotel container d-flex justify-content-start flex-column">
-        <h2 className="fw-bolder">Inspiration for your Next trip</h2>
+        <h2 className="fw-bolder" style={{ color: "#252839" }}>
+          Inspiration for your Next trip
+        </h2>
         <div className="cards-container d-flex justify-content-start py-5 my-3 flex-wrap cards-wrap">
           {hotel.map((el, i) => (
             <div className="col-md-3 mx-0 rounded w-90 " key={i}>
@@ -77,7 +79,7 @@ const CardCoba = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

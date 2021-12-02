@@ -1,15 +1,14 @@
 import axios from "axios";
 import allStore from "../index.js";
 import swal from "sweetalert";
-
-export let token = "";
+import { token } from "../Login/Set-Login.js";
 
 // setting beareer
-// const config = {
-//   headers: { Authorization: `Bearer ${token}` },
-// };
+const config = {
+  headers: { Authorization: `Bearer ${token}` },
+};
 
-export const postLogin = (payload) => {
+export const postEditUser = (payload) => {
   localStorage.clear();
 
   return (dispacth) => {
@@ -18,12 +17,10 @@ export const postLogin = (payload) => {
     console.log("2.masuk Action");
     console.log(payload);
     axios
-      .post("http://18.141.192.116/signin", payload)
+      .put("http://18.141.192.116/jwt/users", payload, config)
       .then((response) => {
-        console.log("3, Masuk Then", response.data.data);
+        // console.log("3, Masuk Then", response.data.data);
         swal(response.data.message);
-        console.log("INI TOKEN", response.data);
-        token = response.data.data.Token;
         dispacth(allStore.setUser(response.data.data));
 
         // menyimpan token ke local storage
@@ -45,9 +42,9 @@ export const postLogin = (payload) => {
   };
 };
 
-export const setLogin = (payload) => {
+export const setEditUser = (payload) => {
   return {
-    type: "SET_LOGIN",
+    type: "SET_EDIT_USER",
     payload,
   };
 };

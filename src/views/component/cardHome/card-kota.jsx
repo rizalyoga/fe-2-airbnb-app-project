@@ -6,8 +6,10 @@ import "./cards-kota.css";
 const cardsKota = () => {
   return (
     <section className="kota mt-5">
-      <div className="container mt-5">
-        <h2 className="fw-bolder">Inspiration for your Next trip</h2>
+      <div className="container mt-5 d-flex flex-column">
+        <h2 className="fw-bolder" style={{ color: "#252839" }}>
+          Inspiration for your Next trip
+        </h2>
         <div className="cards-container">
           <div className="row">
             <div className="kota-kol">
