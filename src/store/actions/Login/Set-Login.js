@@ -18,15 +18,16 @@ export const postLogin = (payload) => {
     console.log("2.masuk Action");
     console.log(payload);
     axios
-      .post("http://18.141.192.116/login", payload)
+      .post("http://18.141.192.116/signin", payload)
       .then((response) => {
-        console.log("3, Masuk Then", response.data.data);
+        // console.log("3, Masuk Then", response.data.data);
         swal(response.data.message);
-        token = response.data.data;
+        console.log("INI TOKEN", response.data);
+        token = response.data.data.Token;
         // menyimpan token ke local storage
 
         if (response.data.data !== null) {
-          localStorage.setItem("token", response.data.data);
+          localStorage.setItem("token", response.data.data.Token);
         }
 
         localStorage.setItem("token", token);
