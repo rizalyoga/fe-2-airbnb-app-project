@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { Form, Button, Modal, Spinner,Alert } from "react-bootstrap";
+import { Form, Button, Modal, Spinner} from "react-bootstrap";
 import swal from "sweetalert";
 
 
@@ -26,6 +26,9 @@ function MyVerticallyCenteredModalRegister(props) {
       .then((data)=>{
         console.log(data, "success register")
         swal("succes register")
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       })
       .catch(err =>{
         console.log(err.response.data.message,  "error register")
@@ -74,7 +77,7 @@ function MyVerticallyCenteredModalRegister(props) {
          
           <Modal.Body>
             <h5 className="mb-3 fw-bold" style={{ textAlign: "center" }}>
-              Sign UP
+              Sign Up
             </h5>
             <Form>
             <input className="input-register" type="text" placeholder="Input your name"  onChange={(e) => setNama(e.target.value)} />

@@ -24,9 +24,13 @@ export const postLogin = (payload) => {
         swal(response.data.message);
         token = response.data.data;
         // menyimpan token ke local storage
+
         if (response.data.data !== null) {
           localStorage.setItem("token", response.data.data);
         }
+
+        localStorage.setItem("token", token);
+        // window.location.reload();
       })
       .catch((err) => {
         console.log("3, Masuk ERROR:", err.response.data.message);
