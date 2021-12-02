@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Form, NavDropdown, Button, FormControl } from "react-bootstrap";
 import MyVerticallyCenteredModalRegister from "./modal-register";
-import logo from './Logo.png'
+import logo from '../../assets/Logo.png'
 import MyVerticallyCenteredModalLogin from "./modal-login";
 import "./navbarPage.css"
 

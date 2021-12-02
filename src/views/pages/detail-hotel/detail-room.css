@@ -1,0 +1,15 @@
+.container-room{
+    width: 100vw;
+    background-color: crimson;
+}
+.content-room{
+    width: 80vw;
+    height: 100vh;
+    background-color: cyan;
+    margin: 0 auto;
+}
+.room-img{
+    background-color: darkblue;
+    margin: 0 auto;
+    
+}
