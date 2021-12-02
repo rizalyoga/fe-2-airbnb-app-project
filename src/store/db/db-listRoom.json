@@ -1,0 +1,11 @@
+{
+  "data": [
+    { "ID": 3, "Nama_Room": "Kamar Bola", "HomeStayID": 3, "Total_Penghuni": 5, "Harga": 200000, "Deskripsi": "bersih dan rapi" },
+    { "ID": 4, "Nama_Room": "Kamar Sepak", "HomeStayID": 3, "Total_Penghuni": 7, "Harga": 400000, "Deskripsi": "mantap dan rapi" },
+    { "ID": 5, "Nama_Room": "Twin Room", "HomeStayID": 4, "Total_Penghuni": 2, "Harga": 225000, "Deskripsi": "bersih dan rapi" },
+    { "ID": 6, "Nama_Room": "Queen Room", "HomeStayID": 4, "Total_Penghuni": 5, "Harga": 450000, "Deskripsi": "mantap dan rapi" },
+    { "ID": 7, "Nama_Room": "Kamar Jahe", "HomeStayID": 5, "Total_Penghuni": 5, "Harga": 200000, "Deskripsi": "rapi dan bersih" },
+    { "ID": 8, "Nama_Room": "Kamar Coklat", "HomeStayID": 5, "Total_Penghuni": 7, "Harga": 400000, "Deskripsi": "rapi dan mantap" }
+  ],
+  "message": "Successful Operation"
+}

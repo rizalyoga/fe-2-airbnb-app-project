@@ -30,18 +30,10 @@ function MyVerticallyCenteredModalLogin(props) {
     if (loading) {
       // console.log("MASUK LOADING SINI");
       return (
-        <Modal {...props} size="xs" aria-labelledby="contained-modal-title-vcenter" centered>
-          <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">Welcome to Airbnb</Modal.Title>
-          </Modal.Header>
+        <Modal size="xs" aria-labelledby="contained-modal-title-vcenter" centered>
           <div className="form-container sign-in-container">
             <Modal.Body>
-              <h5 className="mb-3 fw-bold" style={{ textAlign: "center" }}>
-                Sign Up
-              </h5>
-              <>
-                <Spinner animation="border" />
-              </>
+              <Spinner animation="border" />
             </Modal.Body>
           </div>
         </Modal>

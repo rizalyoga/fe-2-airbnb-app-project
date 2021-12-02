@@ -14,17 +14,19 @@ export const postLogin = (payload) => {
 
   return (dispacth) => {
     dispacth(allStore.setLoading(true));
-    dispacth(allStore.setError(null));
+    // dispacth(allStore.setError(null));
     console.log("2.masuk Action");
     console.log(payload);
     axios
       .post("http://18.141.192.116/login", payload)
       .then((response) => {
         console.log("3, Masuk Then", response.data.data);
-        token = response.data.data;
         swal(response.data.message);
+        token = response.data.data;
         // menyimpan token ke local storage
-        localStorage.setItem("token", token);
+        if (response.data.data !== null) {
+          localStorage.setItem("token", response.data.data);
+        }
       })
       .catch((err) => {
         console.log("3, Masuk ERROR:", err.response.data.message);
