@@ -23,7 +23,7 @@ function MyVerticallyCenteredModalRegister(props) {
     setLoading(true);
 
     axios
-      .post("http://18.141.192.116/users", body)
+      .post("http://18.141.192.116/signup", body)
       .then((data) => {
         console.log(data, "success register");
         swal("succes register");

@@ -1,6 +1,6 @@
 import "./list-hotel.css";
 
-const listHotel = () => {
+const ListHotel = () => {
   return (
     <div classNameName="card-list">
       <div className="container">
@@ -76,4 +76,4 @@ const listHotel = () => {
   );
 };
 
-export default listHotel;
+export default ListHotel;

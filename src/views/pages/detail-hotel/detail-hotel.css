@@ -1,0 +1,54 @@
+.container-hotel{
+    width: 100vw;
+
+}
+
+.content{
+    height: 200vh;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.hotel-name{
+    width: 80vw;
+    /* background-color: rgb(241, 209, 209); */
+    padding-top: 2%;
+}
+.hotel-name p{
+    color: rgb(77, 77, 77);
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+
+.hotel-pict{
+    width: 50vw;
+    height: auto;
+    margin: 0 auto;
+}
+.hotel-pict img{
+    border-radius: 2%;
+}
+
+.continer-room{
+    height: 50vh;
+}
+.list-room{
+    width: 40vw;
+    float: left;
+}
+
+.map{
+    width: 40vw;
+    float: right;
+}
+.leaflet-container{
+    width: 40vw;
+    height: 40vh;
+}
+
+
+.desc{
+    color: rgb(155, 153, 154);
+    margin-top: -10px;
+}
