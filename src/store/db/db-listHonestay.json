@@ -1,0 +1,8 @@
+{
+  "data": [
+    { "ID": 3, "Nama": "Rumah Bola", "Longitude": 110.3694896, "Latitude": -7.7955798, "Alamat": "Jl.Bola", "Rating": 0 },
+    { "ID": 4, "Nama": "Koswara Hotel", "Longitude": 110.3785438, "Latitude": -7.919016900000001, "Alamat": "Jln.Bantul, Bantul, Yogyakarta", "Rating": 0 },
+    { "ID": 5, "Nama": "Rama Hotel", "Longitude": 110.3694896, "Latitude": -7.7955798, "Alamat": "Jl.Kue", "Rating": 0 }
+  ],
+  "message": "Successful Operation"
+}
