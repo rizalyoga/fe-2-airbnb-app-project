@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/user" element={<FormUser />} />
         <Route path="/detailRoom" element={<DetailRoom />} />
-        <Route path="/detailHotel" element={<DetailHotel />} />
+        <Route path="/homestay/:id" element={<DetailHotel />} />
         <Route path="/listHotel" element={<ListHotel />} />
       </Routes>
       {/* <NavBarPage/> */}
