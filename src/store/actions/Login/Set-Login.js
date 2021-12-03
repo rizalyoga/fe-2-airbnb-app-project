@@ -37,7 +37,7 @@ export const postLogin = (payload) => {
         // window.location.reload();
       })
       .catch((err) => {
-        console.log("3, Masuk ERROR:", err.response.data.message);
+        console.log("3, Masuk ERROR:", err.response);
         swal(err.response.data.message);
         // dispacth(allStore.setError(err.response.data.message));
         allStore.setError(err.response.data.message);

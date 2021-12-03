@@ -22,13 +22,13 @@ export const postEditUser = (payload) => {
       .then((response) => {
         console.log("3, Masuk Then", response.data);
         swal(response.data.message);
-        dispatch(allStore.setUser(response.data.data));
+        allStore.setUser(response.data.data);
 
         // window.location.reload();
       })
       .catch((err) => {
         console.log("3, Masuk ERROR:", err);
-        // swal(err.response.data.message);
+        swal(err.response.data.message);
         // allStore.setError(err.response.data.message);
         // dispatch(allStore.setError(err.response.data.message));
       })

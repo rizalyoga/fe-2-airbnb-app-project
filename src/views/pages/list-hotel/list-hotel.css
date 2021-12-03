@@ -7,18 +7,18 @@
   display: flex;
   /* margin: 1% 10%; */
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .card-1 {
   width: 30%;
-  flex-basis: 50%;
+  flex-basis: 30%;
 }
 
-.card-2 {
+/* .card-2 {
   width: 30%;
   flex-basis: 50%;
-}
+} */
 
 @media (min-width: 800px) {
   .wrap {

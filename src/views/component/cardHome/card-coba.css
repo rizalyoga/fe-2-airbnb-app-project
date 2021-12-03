@@ -3,14 +3,14 @@
   margin-bottom: -3%;
 }
 
-.card {
+.card-homstay {
   border: none;
   outline: none;
   background-color: rgb(228, 228, 228);
   border-radius: 20px;
 }
 
-.card:hover {
+.card-homstay:hover {
   transform: translateY(-15px) !important;
   transition: transform 0.3s !important;
 }

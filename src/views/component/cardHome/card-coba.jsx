@@ -55,7 +55,7 @@ const CardCoba = () => {
         <div className="cards-container d-flex justify-content-start py-5 my-3 flex-wrap cards-wrap">
           {hotel.map((el, i) => (
             <div className="col-md-3 mx-0 rounded w-90 " key={i}>
-              <div className="card mt-3 mx-2 mt-5">
+              <div className="card-homstay mt-3 mx-2 mt-5">
                 <div className="hotel align-items-center rounded text-center">
                   <img className="rounded" width="100%" height="200" src={el.image} />
                   <div className="mt-2 px-2 d-flex justify-content-between">
