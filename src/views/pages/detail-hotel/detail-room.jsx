@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import { Button, Col, Row } from "react-bootstrap";
 import 'react-calendar/dist/Calendar.css';
+import NavBarPage from "../../component/navbarPage";
 
 
 
@@ -17,7 +18,7 @@ const DetailRoom = () =>{
     const harga = 20000
 
     const Buttonpesan=() =>{
-        if(harga*hari < 0){
+        if(harga*hari <= 0 || localStorage.token == null ){
             return(
                 <Button variant="danger" style={{width:"23vw"}} disabled> Pesan</Button>    
             )
@@ -32,6 +33,7 @@ const DetailRoom = () =>{
 
     return (
         <> 
+        <NavBarPage/>
         <div className="container-hotel">
             <div className="content">
                 <div className="hotel-name">
