@@ -4,6 +4,7 @@ import MyVerticallyCenteredModalRegister from "./modal-register";
 import logo from "../../assets/Logo.png";
 import MyVerticallyCenteredModalLogin from "./modal-login";
 import "./navbarPage.css";
+import { Link } from "react-router-dom";
 
 const NavBarPage = () => {
   const [modalShowRegister, setModalShowRegister] = React.useState(false);
@@ -27,7 +28,7 @@ const NavBarPage = () => {
             id="navbarScrollingDropdown"
           >
             <MyVerticallyCenteredModalLogin show={modalLoginShow} onHide={() => setModalLoginShow(false)} />
-            <NavDropdown.Item>User</NavDropdown.Item>
+            <NavDropdown.Item> <Link to="/user" style={{textDecoration:'none', color:'black'}}>My Profile</Link></NavDropdown.Item>
             <MyVerticallyCenteredModalRegister show={modalShowRegister} onHide={() => setModalShowRegister(false)} />
             <NavDropdown.Item
               onClick={() => {
@@ -64,7 +65,7 @@ const NavBarPage = () => {
     <>
       <div className="navbarrr d-flex justify-content-between">
         <div className="nav">
-          <img src={logo} width="165" height="50" alt="logo" />
+          <Link to="/"> <img src={logo} width="165" height="50" alt="logo" /></Link>
         </div>
         <div className="nav">
           <Form className="d-flex">

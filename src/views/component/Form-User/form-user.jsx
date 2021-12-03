@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import allStore from "../../../store/actions/index.js";
+import NavBarPage from "../navbarPage";
 
 const FormUser = () => {
   const [Nama, setNama] = useState("");
@@ -32,6 +33,8 @@ const FormUser = () => {
   };
 
   return (
+    <>
+    <NavBarPage/>
     <div style={{ backgroundColor: "#252839", marginTop: "7%" }}>
       <div className="header text-center">
         <h1 id="title" className="pt-3 text-white mt-5">
@@ -85,6 +88,7 @@ const FormUser = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

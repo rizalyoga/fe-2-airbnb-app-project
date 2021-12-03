@@ -6,24 +6,35 @@ import MyVerticallyCenteredModalRegister from "./modal-register";
 import MyVerticallyCenteredModalLogin from "./modal-login";
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
+import NavBarPage from "./navbarPage";
 
 const NavBarHome = () => {
   const [modalShowRegister, setModalShowRegister] = React.useState(false);
   const [modalLoginShow, setModalLoginShow] = React.useState(false);
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
+  // navigate('/user')
 
-  window.onscroll = function () {
-    scrollFunction();
-  };
+  const useraction = ()=>{
+    navigate('/user')
 
-  function scrollFunction() {
-    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 20) {
-      document.getElementById("navbar").style.top = "0";
-    } else {
-      document.getElementById("navbar").style.top = "-80px";
-    }
   }
+
+  // window.onscroll = function () {
+  //   scrollFunction();
+  // };
+
+  // function scrollFunction() {
+  //   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 20) {
+  //     // document.getElementById("navbar").style.top = "0";
+  //     document.getElementById("navbar").style.top = "0";
+  //     document.getElementById("navbar").style.display = "none";
+  //   } else {
+  //     document.getElementById("navbar").style.top = "-80px";
+  //     document.getElementById("navbar").style.display = "none";
+
+  //   }
+  // }
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -44,7 +55,8 @@ const NavBarHome = () => {
         >
           <MyVerticallyCenteredModalLogin show={modalLoginShow} onHide={() => setModalLoginShow(false)} />
           <NavDropdown.Item>
-            <Link to="/user">User</Link>
+            <Button onClick={() => useraction()}>User</Button>
+            
           </NavDropdown.Item>
           <MyVerticallyCenteredModalRegister show={modalShowRegister} onHide={() => setModalShowRegister(false)} />
           <NavDropdown.Item
@@ -78,7 +90,7 @@ const NavBarHome = () => {
 
   return (
     <>
-      <div id="navbar" className="d-flex justify-content-between">
+      {/* <div id="navbar" className="d-flex justify-content-between">
         <div className="nav">
           <img src={logo} width="165" height="50" alt="logo" />
         </div>
@@ -95,11 +107,11 @@ const NavBarHome = () => {
         <div className="nav">
           <div className="user rounded-pill">{navbaraction()}</div>
         </div>
-      </div>
+      </div> */}
 
       {/* SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL */}
 
-      <div className="navbar-b d-flex justify-content-between">
+      {/* <div className="navbar-b d-flex justify-content-between">
         <div className="nav-b">
           <img src={logo} width="145" height="40" alt="logo" />
         </div>
@@ -116,8 +128,8 @@ const NavBarHome = () => {
         <div className="nav-b">
           <div className="user rounded-pill">{navbaraction()}</div>
         </div>
-      </div>
-
+      </div> */}
+      <NavBarPage/>
       <div className="banner">
         <img src={banner} alt="pict" />
         <div className="caption">
