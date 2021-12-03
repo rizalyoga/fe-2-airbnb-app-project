@@ -2,6 +2,8 @@ import "./form-user.css";
 import { Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import swal from "sweetalert";
+import axios from "axios";
 import allStore from "../../../store/actions/index.js";
 import NavBarPage from "../navbarPage";
 
@@ -23,13 +25,50 @@ const FormUser = () => {
     console.log("Telepone: ", Phone_Number);
   }, [detailUser]);
 
+  /* -------------------------------- EDIT USER ------------------------------- */
+
   const handleEdit = (event) => {
     console.log("1. Masuk Submit Handling");
     event.preventDefault();
     console.log("Nama: ", Nama);
     console.log("Email: ", Email);
     console.log("Telepone: ", Phone_Number);
-    dispatch(allStore.postEditUser({ Nama: Nama, Email: Email, Phone_Number: Phone_Number }));
+    dispatch(allStore.postEditUser({ Nama: Nama, Email: Email, phone: Phone_Number }));
+  };
+
+  /* ------------------------------ DELETTE USER ------------------------------ */
+
+  const handleDelete = (event) => {
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    swal({
+      title: "Kamu Yakin Mau Hapus Akun?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios
+          .delete("http://18.141.192.116/jwt/users", config)
+          .then((response) => {
+            localStorage.removeItem("token");
+            window.location.reload();
+          })
+          .catch((err) => {
+            console.log("3, Masuk ERROR:", err);
+            swal(err.response.data.message);
+            // allStore.setError(err.response.data.message);
+            // dispatch(allStore.setError(err.response.data.message));
+          });
+        swal("Data Sukses dihapus", {
+          icon: "success",
+        });
+      } else {
+        swal("Data tidak jadi dihapus");
+      }
+    });
   };
 
   return (
@@ -83,7 +122,14 @@ const FormUser = () => {
             >
               Edit
             </Button>
-            <Button className="btn btn-secondary ms-2 bg-danger">Delete Akun</Button>
+            <Button
+              className="btn btn-secondary ms-2 bg-danger"
+              onClick={(event) => {
+                handleDelete(event);
+              }}
+            >
+              Delete Akun
+            </Button>
           </div>
         </form>
       </div>

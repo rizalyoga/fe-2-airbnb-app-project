@@ -29,7 +29,7 @@ export const postEditUser = (payload) => {
       .catch((err) => {
         console.log("3, Masuk ERROR:", err);
         // swal(err.response.data.message);
-        allStore.setError(err.response.data.message);
+        // allStore.setError(err.response.data.message);
         // dispatch(allStore.setError(err.response.data.message));
       })
       .finally((_) => dispatch(allStore.setError({})));
