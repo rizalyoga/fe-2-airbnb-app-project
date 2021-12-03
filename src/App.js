@@ -19,8 +19,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/user" element={<FormUser />} />
-        <Route path="/DetailRoom" element={<DetailRoom />} />
-        <Route path="/DetailHotel" element={<DetailHotel />} />
+        <Route path="/detailRoom" element={<DetailRoom />} />
+        <Route path="/detailHotel" element={<DetailHotel />} />
       </Routes>
       {/* <NavBarPage/> */}
       {/* <Home /> */}

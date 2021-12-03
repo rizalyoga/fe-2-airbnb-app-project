@@ -2,9 +2,10 @@ import "./detail-hotel.css"
 import img from '../../../assets/banner.jpg'
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet"
 import { Col, Row } from "react-bootstrap"
+import NavBarPage from "../../component/navbarPage"
 
 const Map =() => {
-    const position = [-6.900290051592915, 107.61744300012806]
+    const position = [-7.845756451374453, 110.34483583781163]
 
     return (
  <MapContainer center={position} zoom={18} scrollWheelZoom={true}>
@@ -24,6 +25,7 @@ const Map =() => {
 const DetailHotel = () =>{
     return (
         <> 
+        <NavBarPage/>
         <div className="container-hotel">
             <div className="content">
                 <div className="hotel-name">
