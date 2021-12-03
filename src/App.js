@@ -16,7 +16,7 @@ import DetailRoom from "./views/pages/detail-hotel/detail-room";
 function App() {
   return (
     <BrowserRouter>
-      <NavbarHome />
+      {/* <NavbarHome /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/user" element={<FormUser />} />
