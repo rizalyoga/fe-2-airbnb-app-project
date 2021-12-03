@@ -24,6 +24,7 @@ export const postLogin = (payload) => {
         swal(response.data.message);
         console.log("INI TOKEN", response.data);
         token = response.data.data.Token;
+        console.log("INI TOKEN NYA DAH MASUK : ", token);
         dispacth(allStore.setUser(response.data.data));
 
         // menyimpan token ke local storage
@@ -32,7 +33,7 @@ export const postLogin = (payload) => {
           localStorage.setItem("token", response.data.data.Token);
         }
 
-        localStorage.setItem("token", token);
+        // localStorage.setItem("token", token);
         // window.location.reload();
       })
       .catch((err) => {

@@ -1,6 +1,7 @@
 import "./form-user.css";
+import { Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import allStore from "../../../store/actions/index.js";
 
 const FormUser = () => {
@@ -8,11 +9,27 @@ const FormUser = () => {
   const [Email, setEmail] = useState("");
   const [Phone_Number, setPhone_Number] = useState("");
 
-  const detailUser = useSelector(({ user }) => user);
+  const detailUser = useSelector((user) => user.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(("Ini detail User:", detailUser));
+    console.log("Ini detail User UseEffect Form:", detailUser);
+    setNama(detailUser.Nama);
+    setEmail(detailUser.Email);
+    setPhone_Number(detailUser.Phone_Number);
+    console.log("Nama: ", Nama);
+    console.log("Email: ", Email);
+    console.log("Telepone: ", Phone_Number);
   }, [detailUser]);
+
+  const handleEdit = (event) => {
+    console.log("1. Masuk Submit Handling");
+    event.preventDefault();
+    console.log("Nama: ", Nama);
+    console.log("Email: ", Email);
+    console.log("Telepone: ", Phone_Number);
+    dispatch(allStore.postEditUser({ Nama: Nama, Email: Email, Phone_Number: Phone_Number }));
+  };
 
   return (
     <div style={{ backgroundColor: "#252839", marginTop: "7%" }}>
@@ -32,7 +49,7 @@ const FormUser = () => {
               <label for="Nama" id="name-label">
                 Nama
               </label>
-              <input type="text" className="form-control" id="Nama" />
+              <input type="text" style={{ color: "#fff" }} className="form-control" id="Nama" value={Nama} onChange={(event) => setNama(event.target.value)} />
             </div>
           </div>
 
@@ -41,7 +58,7 @@ const FormUser = () => {
               <label for="email" id="email">
                 Email
               </label>
-              <input type="email" className="form-control" id="Email" />
+              <input type="email" style={{ color: "#fff" }} className="form-control" id="Email" value={Email} onChange={(event) => setEmail(event.target.value)} />
             </div>
           </div>
 
@@ -50,17 +67,20 @@ const FormUser = () => {
               <label for="Phone_Number" id="Phone_Number">
                 Nomer Hand Phone
               </label>
-              <input type="cellphone" className="form-control" id="Phone_Number" />
+              <input type="text" style={{ color: "#fff" }} className="form-control" id="Phone_Number" value={Phone_Number} onChange={(event) => setPhone_Number(event.target.value)} />
             </div>
           </div>
 
           <div className="col-12">
-            <button type="submit" className="btn btn-secondary">
+            <Button
+              className="btn btn-secondary"
+              onClick={(event) => {
+                handleEdit(event);
+              }}
+            >
               Edit
-            </button>
-            <button type="submit" className="btn btn-secondary ms-2 bg-danger">
-              Delete Akun
-            </button>
+            </Button>
+            <Button className="btn btn-secondary ms-2 bg-danger">Delete Akun</Button>
           </div>
         </form>
       </div>
