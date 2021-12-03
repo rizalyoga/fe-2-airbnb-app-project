@@ -2,6 +2,7 @@ import "./form-user.css";
 import { Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import axios from "axios";
 import allStore from "../../../store/actions/index.js";
@@ -14,6 +15,7 @@ const FormUser = () => {
 
   const detailUser = useSelector((user) => user.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("Ini detail User UseEffect Form:", detailUser);
@@ -54,6 +56,9 @@ const FormUser = () => {
           .delete("http://18.141.192.116/jwt/users", config)
           .then((response) => {
             localStorage.removeItem("token");
+            if (response.data.data !== null) {
+              navigate("/");
+            }
             window.location.reload();
           })
           .catch((err) => {
