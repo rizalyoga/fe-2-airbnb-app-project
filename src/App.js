@@ -3,19 +3,27 @@ import "./App.css";
 import Home from "./views/home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "../src/views/component/footer.jsx";
+
+import FormUser from "../src/views/component/Form-User/form-user.jsx";
+// import NavbarHome from "./views/component/navbarHome.jsx";
+// import allStore from "./store/actions/index.js"
+
 import DetailHotel from "./views/pages/detail-hotel/detail-hotel";
-import NavBarPage from "./views/component/navbarPage";
 import DetailRoom from "./views/pages/detail-hotel/detail-room";
-import NavBarHome from "./views/component/navbarHome";
+// import NavBarPage from "./views/component/navbarPage";
 
 function App() {
   return (
     <BrowserRouter>
-    <NavBarHome/>
+      {/* <NavbarHome /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user" element={<FormUser />} />
+        <Route path="/DetailRoom" element={<DetailRoom />} />
+        <Route path="/DetailHotel" element={<DetailHotel />} />
+      </Routes>
       {/* <NavBarPage/> */}
-      {/* <DetailHotel/> */}
-      <Home />
-      {/* <DetailRoom/> */}
+      {/* <Home /> */}
       <Footer />
     </BrowserRouter>
   );

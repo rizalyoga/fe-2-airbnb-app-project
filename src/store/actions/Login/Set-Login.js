@@ -20,17 +20,20 @@ export const postLogin = (payload) => {
     axios
       .post("http://18.141.192.116/signin", payload)
       .then((response) => {
-        // console.log("3, Masuk Then", response.data.data);
+        console.log("3, Masuk Then", response.data.data);
         swal(response.data.message);
         console.log("INI TOKEN", response.data);
         token = response.data.data.Token;
+        console.log("INI TOKEN NYA DAH MASUK : ", token);
+        dispacth(allStore.setUser(response.data.data));
+
         // menyimpan token ke local storage
 
         if (response.data.data !== null) {
           localStorage.setItem("token", response.data.data.Token);
         }
 
-        localStorage.setItem("token", token);
+        // localStorage.setItem("token", token);
         // window.location.reload();
       })
       .catch((err) => {

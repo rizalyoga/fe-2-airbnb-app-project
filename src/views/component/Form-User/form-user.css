@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.container-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+  color: #fff;
+}
+
+.form-select option {
+  color: #fff;
+}
+
+/* body {
+  background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url("https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/EeN01lAOxijss6byx/working-late-confident-young-man-working-on-his-laptop-pc-with-chroma-key-green-screen-while-sitting-at-his-working-place-at-night-time-handsome-freelancer-workspace-creative-manager-at-work_rq-rooqer_thumbnail-1080_01.png");
+} */
