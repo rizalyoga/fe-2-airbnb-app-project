@@ -17,9 +17,9 @@ const Home = () => {
     dispatch(allStore.fetchHomestay());
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(listHomestay);
-  }, [listHomestay]);
+  // useEffect(() => {
+  //   console.log(listHomestay);
+  // }, [listHomestay]);
 
   return (
     <div>
