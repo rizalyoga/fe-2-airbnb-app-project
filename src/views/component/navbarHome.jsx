@@ -20,22 +20,6 @@ const NavBarHome = () => {
 
   }
 
-  // window.onscroll = function () {
-  //   scrollFunction();
-  // };
-
-  // function scrollFunction() {
-  //   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 20) {
-  //     // document.getElementById("navbar").style.top = "0";
-  //     document.getElementById("navbar").style.top = "0";
-  //     document.getElementById("navbar").style.display = "none";
-  //   } else {
-  //     document.getElementById("navbar").style.top = "-80px";
-  //     document.getElementById("navbar").style.display = "none";
-
-  //   }
-  // }
-
   const logout = () => {
     localStorage.removeItem("token");
     window.location.reload();
@@ -90,45 +74,6 @@ const NavBarHome = () => {
 
   return (
     <>
-      {/* <div id="navbar" className="d-flex justify-content-between">
-        <div className="nav">
-          <img src={logo} width="165" height="50" alt="logo" />
-        </div>
-        <div className="nav">
-          <Form className="d-flex">
-            <FormControl type="search" placeholder="Search" className="form-seach-nav me-2" aria-label="Search" />
-            <Button variant="danger" className="mt--3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-              </svg>
-            </Button>
-          </Form>
-        </div>
-        <div className="nav">
-          <div className="user rounded-pill">{navbaraction()}</div>
-        </div>
-      </div> */}
-
-      {/* SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL--SCOLL */}
-
-      {/* <div className="navbar-b d-flex justify-content-between">
-        <div className="nav-b">
-          <img src={logo} width="145" height="40" alt="logo" />
-        </div>
-        <div className="nav-b">
-          <Form className="d-flex">
-            <FormControl type="search" placeholder="Search" className="me-2" aria-label="Search" />
-            <Button variant="danger" className="mt--3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-              </svg>
-            </Button>
-          </Form>
-        </div>
-        <div className="nav-b">
-          <div className="user rounded-pill">{navbaraction()}</div>
-        </div>
-      </div> */}
       <NavBarPage/>
       <div className="banner">
         <img src={banner} alt="pict" />
