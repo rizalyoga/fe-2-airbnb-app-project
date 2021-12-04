@@ -79,17 +79,14 @@ const FormUser = () => {
   return (
     <>
       <NavBarPage />
-      <div style={{ backgroundColor: "#252839", height: "70vh", marginTop: "-9" }}>
+      <div style={{ backgroundColor: "#D85B67", height: "70vh", marginTop: "-9" }}>
         <div className="header text-center">
           <h1 id="title" className="pt-3 text-white ">
             Edit Data User
           </h1>
-          <p id="description" className="text-white">
-            Thank you for taking the time to help us improve the platform
-          </p>
         </div>
 
-        <div className="container-md container-form justify-content-center rounded-2 p-4" style={{ backgroundColor: "#252839" }}>
+        <div className="container-md container-form justify-content-center rounded-2 p-4" style={{ backgroundColor: "#D85B67" }}>
           <form id="survey-form">
             <div className="form-group">
               <div className="mb-3">
@@ -128,7 +125,7 @@ const FormUser = () => {
                 Edit
               </Button>
               <Button
-                className="btn btn-secondary ms-2 bg-danger"
+                className="btn btn-danger ms-2 bg-danger"
                 onClick={(event) => {
                   handleDelete(event);
                 }}

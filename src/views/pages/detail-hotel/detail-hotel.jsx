@@ -1,101 +1,102 @@
-import "./detail-hotel.css"
-import img from '../../../assets/banner.jpg'
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet"
-import { Col, Row } from "react-bootstrap"
-import NavBarPage from "../../component/navbarPage"
+import React, { useEffect, useState } from "react";
+import "./detail-hotel.css";
+import img from "../../../assets/banner.jpg";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { Col, Row } from "react-bootstrap";
+import NavBarPage from "../../component/navbarPage";
+/* --------------------------------- TAMBAH --------------------------------- */
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import allStore from "../../../store/actions/index.js";
+import { Spinner } from "react-bootstrap";
+/* ----------------------------------- -- ----------------------------------- */
 
-const Map =() => {
-    const position = [-7.845756451374453, 110.34483583781163]
+const DetailHotel = () => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
 
+  //   GET DATA DARI DETAILS HOMESTAY
+  const detailHomeStay = useSelector(({ detailHomestay }) => detailHomestay);
+  const listRooms = useSelector(({ listRooms }) => listRooms);
+  const loading = useSelector(({ loading }) => loading);
+
+  useEffect(() => {
+    dispatch(allStore.fetchHomestayDetail(id));
+  }, [dispatch, id]);
+
+  //   GET LIST ROOMS
+  useEffect(() => {
+    dispatch(allStore.fetchRooms());
+  }, [dispatch]);
+
+  if (loading) {
     return (
- <MapContainer center={position} zoom={18} scrollWheelZoom={true}>
-    <TileLayer
-      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    />
-    <Marker position={position}>
-      <Popup>
-        Hotel Name
-      </Popup>
-    </Marker>
-  </MapContainer>
-    )
-}
-
-const DetailHotel = () =>{
-    return (
-        <> 
-        <NavBarPage/>
-        <div className="container-hotel">
-            <div className="content">
-                <div className="hotel-name">
-                    <h3>Hotel Name</h3>
-                    <p>Jln.Bantul, Bantul, Yogyakarta</p>
-                    <div className="hotel-pict">
-                    <img src={img} alt="gambar" width="100%" />
-                    </div>
-                <div className="select-room mt-5"><h3> List Room </h3></div>
-                <div className="continer-room mt-3">
-                    <div className="list-room">
-                        <div className="room-name">
-                            <Row className="mb-4">
-                                <Col md="auto">
-                                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52686735/original/e4f352ef-b970-441d-ab7d-b0655cb28e01.jpeg" alt="img-hotel" width="250px" style={{borderRadius:"6%"}}/>
-                                </Col>
-                                <Col>
-                                <h4>Nama_Room</h4>
-                                <p className="desc mt-2">Deskripsi</p>
-                                <p className="desc ">Total_Penghuni</p>
-                                <p className="desc ">Harga</p>
-                                </Col>
-                            </Row>
-                            <Row className="mb-4">
-                                <Col md="auto">
-                                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52686735/original/e4f352ef-b970-441d-ab7d-b0655cb28e01.jpeg" alt="img-hotel" width="250px" style={{borderRadius:"6%"}}/>
-                                </Col>
-                                <Col>
-                                <h4>Nama_Room</h4>
-                                <p className="desc mt-2">Deskripsi</p>
-                                <p className="desc ">Total_Penghuni</p>
-                                <p className="desc ">Harga</p>
-                                </Col>
-                            </Row>
-                            <Row className="mb-4">
-                                <Col md="auto">
-                                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52686735/original/e4f352ef-b970-441d-ab7d-b0655cb28e01.jpeg" alt="img-hotel" width="250px" style={{borderRadius:"6%"}}/>
-                                </Col>
-                                <Col>
-                                <h4>Nama_Room</h4>
-                                <p className="desc mt-2">Deskripsi</p>
-                                <p className="desc ">Total_Penghuni</p>
-                                <p className="desc ">Harga</p>
-                                </Col>
-                            </Row>
-                            <Row className="mb-4">
-                                <Col md="auto">
-                                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52686735/original/e4f352ef-b970-441d-ab7d-b0655cb28e01.jpeg" alt="img-hotel" width="250px" style={{borderRadius:"6%"}}/>
-                                </Col>
-                                <Col>
-                                <h4>Nama_Room</h4>
-                                <p className="desc mt-2">Deskripsi</p>
-                                <p className="desc ">Total_Penghuni</p>
-                                <p className="desc ">Harga</p>
-                                </Col>
-                            </Row>
-                            
-                            
-                        </div>
-                    </div>
-                    <div className="map">
-                       {Map()}
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-        
+      <div className="bg-danger d-flex justify-content-center align-items-center" style={{ height: "100vh", opacity: "0.1" }}>
+        <h1 className="text-center text-white" style={{ margin: "auto" }}>
+          PLEASE WAIT ...
+        </h1>
+        <>
+          <Spinner animation="border" />
+          <Spinner animation="grow" />
         </>
-    )
-}
+      </div>
+    );
+  }
 
-export default DetailHotel
+  const Map = () => {
+    const position = [detailHomeStay.Latitude, detailHomeStay.Longitude];
+
+    return (
+      <MapContainer center={position} zoom={18} scrollWheelZoom={true}>
+        <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <Marker position={position}>
+          <Popup>{detailHomeStay.Nama}</Popup>
+        </Marker>
+      </MapContainer>
+    );
+  };
+
+  return (
+    <>
+      <NavBarPage />
+      <div className="container-hotel">
+        <div className="content">
+          <div className="hotel-name">
+            <div>
+              <h3>{detailHomeStay.Nama}</h3>
+              <p>{detailHomeStay.Alamat}</p>
+              <div className="hotel-pict">
+                <img src={img} alt="gambar" width="100%" />
+              </div>
+            </div>
+            <div className="select-room mt-5">
+              <h3> List Room </h3>
+            </div>
+            <div className="continer-room mt-3">
+              <div className="list-room">
+                <div className="room-name">
+                  {listRooms.map((el, i) => (
+                    <Row className="mb-4" key={i}>
+                      <Col md="auto">
+                        <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52686735/original/e4f352ef-b970-441d-ab7d-b0655cb28e01.jpeg" alt="img-hotel" width="250px" style={{ borderRadius: "6%" }} />
+                      </Col>
+                      <Col>
+                        <h4>{el.Nama_Room}</h4>
+                        <p className="desc mt-2">{el.Deskripsi}</p>
+                        <p className="desc ">{`${el.Total_Penghuni} orang`}</p>
+                        <p className="desc ">{`Rp ${el.Harga},00`}</p>
+                      </Col>
+                    </Row>
+                  ))}
+                </div>
+              </div>
+              <div className="map">{Map()}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default DetailHotel;

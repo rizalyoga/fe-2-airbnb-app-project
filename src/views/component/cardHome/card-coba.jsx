@@ -79,7 +79,7 @@ const CardCoba = (props) => {
                     <span className="text1 d-block">{el.Alamat}</span>
                   </div>
                   <div className="cost my-1 text-dark p-1">
-                    <span style={{ color: "#4176E7" }}>Rating</span>
+                    <span style={{ color: "#FFEA76" }}>{el.Rating}</span>
                   </div>
                 </div>
               </div>
