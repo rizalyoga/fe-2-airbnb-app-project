@@ -55,3 +55,9 @@
   font-size: 30px;
   font-weight: bold;
 }
+
+.coba {
+  padding: 20px !important;
+  border-radius: 50px;
+  width: 20%;
+}

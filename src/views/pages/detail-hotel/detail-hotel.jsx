@@ -9,11 +9,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import allStore from "../../../store/actions/index.js";
 import { Spinner } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 /* ----------------------------------- -- ----------------------------------- */
 
 const DetailHotel = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   //   GET DATA DARI DETAILS HOMESTAY
   const detailHomeStay = useSelector(({ detailHomestay }) => detailHomestay);
@@ -75,16 +77,16 @@ const DetailHotel = () => {
             <div className="continer-room mt-3">
               <div className="list-room">
                 <div className="room-name">
-                  {listRooms.map((el, i) => (
+                  {listRooms.map((element, i) => (
                     <Row className="mb-4" key={i}>
                       <Col md="auto">
                         <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52686735/original/e4f352ef-b970-441d-ab7d-b0655cb28e01.jpeg" alt="img-hotel" width="250px" style={{ borderRadius: "6%" }} />
                       </Col>
                       <Col>
-                        <h4>{el.Nama_Room}</h4>
-                        <p className="desc mt-2">{el.Deskripsi}</p>
-                        <p className="desc ">{`${el.Total_Penghuni} orang`}</p>
-                        <p className="desc ">{`Rp ${el.Harga},00`}</p>
+                        <h4>{element.Nama_Room}</h4>
+                        <p className="desc mt-2">{element.Deskripsi}</p>
+                        <p className="desc ">{`${element.Total_Penghuni} orang`}</p>
+                        <p className="desc ">{`Rp ${element.Harga},00`}</p>
                       </Col>
                     </Row>
                   ))}

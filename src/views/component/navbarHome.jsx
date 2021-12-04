@@ -77,7 +77,7 @@ const NavBarHome = () => {
         <img src={banner} alt="pict" />
         <div className="caption" style={{ marginTop: "-35%", marginBottom: "15%" }}>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ullam ratione iure. Voluptate harum vero consequuntur </p>
-          <Button variant="danger">Discovery </Button>
+          <Button variant="danger coba">Discovery </Button>
         </div>
       </div>
     </>
