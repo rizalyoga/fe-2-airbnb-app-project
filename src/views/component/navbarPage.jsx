@@ -4,15 +4,18 @@ import MyVerticallyCenteredModalRegister from "./modal-register";
 import logo from "../../assets/Logo.png";
 import MyVerticallyCenteredModalLogin from "./modal-login";
 import "./navbarPage.css";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const NavBarPage = () => {
   const [modalShowRegister, setModalShowRegister] = React.useState(false);
   const [modalLoginShow, setModalLoginShow] = React.useState(false);
 
+  const navigate = useNavigate();
+
   const logout = () => {
+    navigate("/");
     localStorage.removeItem("token");
-    window.location.reload();
+    // window.location.reload();
   };
   const navbaractionpage = () => {
     if (localStorage.token) {
@@ -28,7 +31,18 @@ const NavBarPage = () => {
             id="navbarScrollingDropdown"
           >
             <MyVerticallyCenteredModalLogin show={modalLoginShow} onHide={() => setModalLoginShow(false)} />
-            <NavDropdown.Item> <Link to="/user" style={{textDecoration:'none', color:'black'}}>My Profile</Link></NavDropdown.Item>
+            <NavDropdown.Item>
+              {" "}
+              <Link to="/user" style={{ textDecoration: "none", color: "black" }}>
+                My Profile
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              {" "}
+              <Link to="/homestayUser" style={{ textDecoration: "none", color: "black" }}>
+                My Homestay
+              </Link>
+            </NavDropdown.Item>
             <MyVerticallyCenteredModalRegister show={modalShowRegister} onHide={() => setModalShowRegister(false)} />
             <NavDropdown.Item
               onClick={() => {
@@ -65,7 +79,10 @@ const NavBarPage = () => {
     <>
       <div className="navbarrr d-flex justify-content-between">
         <div className="nav">
-          <Link to="/"> <img src={logo} width="165" height="50" alt="logo" /></Link>
+          <Link to="/">
+            {" "}
+            <img src={logo} width="165" height="50" alt="logo" />
+          </Link>
         </div>
         <div className="nav">
           <Form className="d-flex">

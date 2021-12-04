@@ -12,6 +12,7 @@ import ListHotel from "./views/pages/list-hotel/list-hotel.jsx";
 import DetailHotel from "./views/pages/detail-hotel/detail-hotel";
 import DetailRoom from "./views/pages/detail-hotel/detail-room";
 // import NavBarPage from "./views/component/navbarPage";
+import HomestayUser from "./views/pages/list-hotel/listHomestayUser.jsx";
 
 function App() {
   return (
@@ -20,12 +21,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/user" element={<FormUser />} />
-        <Route path="/detailRoom" element={<DetailRoom />} />
+        <Route path="/detailRoom/:id" element={<DetailRoom />} />
         <Route path="/homestay/:id" element={<DetailHotel />} />
         <Route path="/listHotel" element={<ListHotel />} />
+        <Route path="/homestayUser" element={<HomestayUser />} />
       </Routes>
       {/* <NavBarPage/> */}
       {/* <Home /> */}
+
       <Footer />
     </BrowserRouter>
   );

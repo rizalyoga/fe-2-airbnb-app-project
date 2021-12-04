@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { Card } from "react-bootstrap";
 import "./card-coba.css";
@@ -79,7 +79,7 @@ const CardCoba = (props) => {
                     <span className="text1 d-block">{el.Alamat}</span>
                   </div>
                   <div className="cost my-1 text-dark p-1">
-                    <span style={{ color: "#4176E7" }}>Rating</span>
+                    <span style={{ color: "#dc3545" }}>{el.Rating}</span>
                   </div>
                 </div>
               </div>
