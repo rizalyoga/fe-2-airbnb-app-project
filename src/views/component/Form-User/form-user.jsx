@@ -96,7 +96,7 @@ const FormUser = () => {
                 <label for="Nama" id="name-label">
                   Nama
                 </label>
-                <input type="text" style={{ color: "#fff" }} className="form-control" id="Nama" value={Nama} onChange={(event) => setNama(event.target.value)} />
+                <input type="text" style={{ color: "#fff" }} className="form-control " autoComplete="off" id="Nama" value={Nama} onChange={(event) => setNama(event.target.value)} />
               </div>
             </div>
 

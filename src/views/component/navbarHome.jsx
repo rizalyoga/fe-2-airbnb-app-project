@@ -15,10 +15,9 @@ const NavBarHome = () => {
   const navigate = useNavigate();
   // navigate('/user')
 
-  const useraction = ()=>{
-    navigate('/user')
-
-  }
+  const useraction = () => {
+    navigate("/user");
+  };
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -40,7 +39,6 @@ const NavBarHome = () => {
           <MyVerticallyCenteredModalLogin show={modalLoginShow} onHide={() => setModalLoginShow(false)} />
           <NavDropdown.Item>
             <Button onClick={() => useraction()}>User</Button>
-            
           </NavDropdown.Item>
           <MyVerticallyCenteredModalRegister show={modalShowRegister} onHide={() => setModalShowRegister(false)} />
           <NavDropdown.Item
@@ -74,7 +72,7 @@ const NavBarHome = () => {
 
   return (
     <>
-      <NavBarPage/>
+      <NavBarPage />
       <div className="banner">
         <img src={banner} alt="pict" />
         <div className="caption">
