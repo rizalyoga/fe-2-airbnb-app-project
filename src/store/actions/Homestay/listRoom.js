@@ -5,7 +5,7 @@ export const fetchRooms = () => {
   return (dispatch) => {
     dispatch(allStore.setLoading(true));
     axios
-      .get(`http://18.141.192.116/rooms`)
+      .get(`http://54.179.25.66/rooms`)
       .then((data) => {
         console.log(data.data.data);
         dispatch(setRooms(data.data.data));

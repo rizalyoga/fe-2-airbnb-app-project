@@ -55,7 +55,7 @@ const HomestayUser = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`http://18.141.192.116/jwt/homestays/${id}`, config)
+          .delete(`http://54.179.25.66/jwt/homestays/${id}`, config)
           .then((response) => {
             console.log("3.berhasil dapat data", response.data);
             console.log("INI TOKEN DELETE", token);

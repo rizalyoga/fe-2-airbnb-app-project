@@ -19,7 +19,7 @@ export const postLogin = (payload) => {
     console.log("2.masuk Action");
     console.log(payload);
     axios
-      .post("http://18.141.192.116/signin", payload)
+      .post("http://54.179.25.66/signin", payload)
       .then((response) => {
         console.log("3, Masuk Then", response.data.data);
         swal(response.data.message);

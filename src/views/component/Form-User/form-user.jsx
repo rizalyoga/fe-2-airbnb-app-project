@@ -54,7 +54,7 @@ const FormUser = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete("http://18.141.192.116/jwt/users", config)
+          .delete("http://54.179.25.66/jwt/users", config)
           .then((response) => {
             localStorage.removeItem("token");
             if (response.data.data !== null) {

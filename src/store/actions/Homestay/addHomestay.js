@@ -14,7 +14,7 @@ export const addHomestay = (payload) => {
     console.log(payload);
 
     axios
-      .post("http://18.141.192.116/jwt/homestays", payload, config)
+      .post("http://54.179.25.66/jwt/homestays", payload, config)
       .then((response) => {
         console.log("3, Masuk Then", response.data.data);
         swal(response.data.message);

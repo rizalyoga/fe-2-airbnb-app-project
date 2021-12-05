@@ -17,7 +17,7 @@ export const postEditUser = (payload) => {
     console.log("2.masuk Action Edit INI");
     console.log(payload);
     axios
-      .put("http://18.141.192.116/jwt/users", payload, config)
+      .put("http://54.179.25.66/jwt/users", payload, config)
       .then((response) => {
         console.log("3, Masuk Then", response.data);
         swal(response.data.message);

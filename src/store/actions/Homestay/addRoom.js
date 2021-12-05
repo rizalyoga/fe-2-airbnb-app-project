@@ -13,7 +13,7 @@ export const addRoom = (payload, id) => {
     console.log("2.masuk Action Add Homestay");
     console.log(payload);
     axios
-      .post(`http://18.141.192.116/jwt/rooms/${id}`, payload, config)
+      .post(`http://54.179.25.66/jwt/rooms/${id}`, payload, config)
       .then((response) => {
         console.log("3, Masuk Then", response.data.data);
         swal(response.data.message);
