@@ -14,6 +14,7 @@ import DetailRoom from "./views/pages/detail-hotel/detail-room";
 // import NavBarPage from "./views/component/navbarPage";
 import HomestayUser from "./views/pages/list-hotel/listHomestayUser.jsx";
 import FormAddHomestay from "./views/component/Form-Create-Homestay/formCreateHomestay.jsx";
+import FormEditHomestay from "./views/component/Form-Create-Homestay/formEditHomestay.jsx";
 import FormAddRoom from "./views/component/Form-Create-Homestay/formCreateRoom.jsx";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/homestayUser" element={<HomestayUser />} />
         <Route path="/addHomestay" element={<FormAddHomestay />} />
         <Route path="/addRoom:id" element={<FormAddRoom />} />
+        <Route path="/editHomestay/:id" element={<FormEditHomestay />} />
       </Routes>
       {/* <NavBarPage/> */}
       {/* <Home /> */}

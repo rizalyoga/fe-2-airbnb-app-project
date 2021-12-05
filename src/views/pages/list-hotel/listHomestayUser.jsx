@@ -4,6 +4,8 @@ import allStore from "../../../store/actions/index.js";
 import { Table, Button, ButtonGroup } from "react-bootstrap";
 import NavBarPage from "../../component/navbarPage.jsx";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+import axios from "axios";
 
 const HomestayUser = () => {
   const listHomestay = useSelector(({ listHomestay }) => listHomestay);
@@ -32,6 +34,45 @@ const HomestayUser = () => {
 
   const toDetail = (id) => {
     navigate(`/homestay/${id}`);
+  };
+
+  const toEditHomestay = (id) => {
+    navigate(`/editHomestay/${id}`);
+  };
+
+  // HANDLEDETELE
+  const handleDelete = (id) => {
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    swal({
+      title: "Kamu Yakin Hapus Homestay ?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios
+          .delete(`http://18.141.192.116/jwt/homestays/${id}`, config)
+          .then((response) => {
+            console.log("3.berhasil dapat data", response.data);
+            console.log("INI TOKEN DELETE", token);
+            console.log("Homestay dengan id:", id);
+            swal("Data Sukses dihapus", {
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            console.log("3.berhasil dapat error", error.message);
+            console.log("3.berhasil dapat error--", error);
+            swal("Data gagal dihapus", error.message);
+          });
+      } else {
+        swal("Data tidak jadi dihapus");
+      }
+    });
   };
 
   return (
@@ -80,8 +121,22 @@ const HomestayUser = () => {
                           >
                             TAMBAH ROOM
                           </Button>
-                          <Button variant="outline-danger">EDIT</Button>
-                          <Button variant="outline-danger">DELETE</Button>
+                          <Button
+                            variant="outline-danger"
+                            onClick={() => {
+                              toEditHomestay(el.ID);
+                            }}
+                          >
+                            EDIT
+                          </Button>
+                          <Button
+                            variant="outline-danger"
+                            onClick={() => {
+                              handleDelete(el.ID);
+                            }}
+                          >
+                            DELETE
+                          </Button>
                         </ButtonGroup>
                       </td>
                     </tr>

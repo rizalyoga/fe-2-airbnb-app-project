@@ -58,7 +58,7 @@ const FormAddRoom = () => {
               <Row>
                 <div className="Room">
                   <Form.Group className="mb-3" controlId="nama_room">
-                    <Form.Label>Nama Room 1</Form.Label>
+                    <Form.Label>Nama Room</Form.Label>
                     <Form.Control placeholder="Nama Room" autoComplete="off" value={nama_room} onChange={(event) => setNamaRoom(event.target.value)} />
                   </Form.Group>
 
