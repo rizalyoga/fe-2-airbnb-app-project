@@ -3,13 +3,19 @@ import { useSelector, useDispatch } from "react-redux";
 import allStore from "../../../store/actions/index.js";
 import { Table, Button, ButtonGroup } from "react-bootstrap";
 import NavBarPage from "../../component/navbarPage.jsx";
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+import axios from "axios";
 
 const HomestayUser = () => {
   const listHomestay = useSelector(({ listHomestay }) => listHomestay);
   const detailUser = useSelector((user) => user.user);
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const [userId, setUserId] = useState("");
+  const idKu = parseInt(localStorage.getItem("user"));
 
   useEffect(() => {
     dispatch(allStore.fetchHomestay());
@@ -21,6 +27,54 @@ const HomestayUser = () => {
     setUserId(detailUser.ID);
   }, [listHomestay, detailUser]);
 
+  // NAVIGATION
+  const toAddRoom = (id) => {
+    navigate(`/addRoom${id}`);
+  };
+
+  const toDetail = (id) => {
+    navigate(`/homestay/${id}`);
+  };
+
+  const toEditHomestay = (id) => {
+    navigate(`/editHomestay/${id}`);
+  };
+
+  // HANDLEDETELE
+  const handleDelete = (id) => {
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    swal({
+      title: "Kamu Yakin Hapus Homestay ?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios
+          .delete(`http://54.179.25.66/jwt/homestays/${id}`, config)
+          .then((response) => {
+            console.log("3.berhasil dapat data", response.data);
+            console.log("INI TOKEN DELETE", token);
+            console.log("Homestay dengan id:", id);
+            swal("Data Sukses dihapus", {
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            console.log("3.berhasil dapat error", error.message);
+            console.log("3.berhasil dapat error--", error);
+            swal("Data gagal dihapus", error.message);
+          });
+      } else {
+        swal("Data tidak jadi dihapus");
+      }
+    });
+  };
+
   return (
     <div>
       <NavBarPage />
@@ -30,7 +84,7 @@ const HomestayUser = () => {
           <Table>
             <thead>
               <div>
-                <Button className="my-3" variant="outline-danger">
+                <Button className="my-3" variant="outline-danger" onClick={() => navigate("/addHomestay")}>
                   Tambahkan Homestay
                 </Button>
               </div>
@@ -41,9 +95,9 @@ const HomestayUser = () => {
             </thead>
             <tbody>
               {listHomestay.map((el, i) => {
-                if (el.UsersID !== userId) {
+                if (el.UsersID !== idKu) {
                   return <></>;
-                } else if (el.UsersID === userId) {
+                } else if (el.UsersID === idKu) {
                   return (
                     <tr key={i}>
                       <td className="text-center " style={{ fontSize: "130%" }}>
@@ -51,9 +105,38 @@ const HomestayUser = () => {
                       </td>
                       <td className="text-center">
                         <ButtonGroup aria-label="Basic example">
-                          <Button variant="outline-danger">DETAIL</Button>
-                          <Button variant="outline-danger">EDIT</Button>
-                          <Button variant="outline-danger">DELETE</Button>
+                          <Button
+                            variant="outline-danger"
+                            onClick={() => {
+                              toDetail(el.ID);
+                            }}
+                          >
+                            DETAIL
+                          </Button>
+                          <Button
+                            variant="outline-danger"
+                            onClick={() => {
+                              toAddRoom(el.ID);
+                            }}
+                          >
+                            TAMBAH ROOM
+                          </Button>
+                          <Button
+                            variant="outline-danger"
+                            onClick={() => {
+                              toEditHomestay(el.ID);
+                            }}
+                          >
+                            EDIT
+                          </Button>
+                          <Button
+                            variant="outline-danger"
+                            onClick={() => {
+                              handleDelete(el.ID);
+                            }}
+                          >
+                            DELETE
+                          </Button>
                         </ButtonGroup>
                       </td>
                     </tr>

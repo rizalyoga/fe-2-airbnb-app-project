@@ -1,11 +1,8 @@
 import axios from "axios";
 import allStore from "../index.js";
 import swal from "sweetalert";
-// import { token } from "../Login/Set-Login.js";
 
-// setting beareer
-
-export const postEditUser = (payload) => {
+export const addRoom = (payload, id) => {
   const token = localStorage.getItem("token");
   const config = {
     headers: { Authorization: `Bearer ${token}` },
@@ -13,31 +10,27 @@ export const postEditUser = (payload) => {
 
   return (dispatch) => {
     dispatch(allStore.setLoading(true));
-    // dispatch(allStore.setError(null));
-    console.log("2.masuk Action Edit INI");
+    console.log("2.masuk Action Add Homestay");
     console.log(payload);
     axios
-      .put("http://54.179.25.66/jwt/users", payload, config)
+      .post(`http://54.179.25.66/jwt/rooms/${id}`, payload, config)
       .then((response) => {
-        console.log("3, Masuk Then", response.data);
+        console.log("3, Masuk Then", response.data.data);
         swal(response.data.message);
-        allStore.setUser(response.data.data);
-
-        // window.location.reload();
+        dispatch(allStore.setAddRoom(response.data.data));
       })
       .catch((err) => {
         console.log("3, Masuk ERROR:", err.response);
-        swal(err.response.data.message);
+        swal(err.response);
         // allStore.setError(err.response.data.message);
-        // dispatch(allStore.setError(err.response.data.message));
       })
       .finally((_) => dispatch(allStore.setLoading(false)), dispatch(allStore.setError({})));
   };
 };
 
-export const setEditUser = (payload) => {
+export const setAddRoom = (payload) => {
   return {
-    type: "SET_EDIT_USER",
+    type: "SET_ADD_ROOM",
     payload,
   };
 };

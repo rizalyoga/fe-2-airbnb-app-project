@@ -1,6 +1,7 @@
 import axios from "axios";
 import allStore from "../index.js";
 import swal from "sweetalert";
+// import { Spinner } from "react-bootstrap";
 
 export let token = "";
 
@@ -18,7 +19,7 @@ export const postLogin = (payload) => {
     console.log("2.masuk Action");
     console.log(payload);
     axios
-      .post("http://18.141.192.116/signin", payload)
+      .post("http://54.179.25.66/signin", payload)
       .then((response) => {
         console.log("3, Masuk Then", response.data.data);
         swal(response.data.message);
@@ -31,6 +32,7 @@ export const postLogin = (payload) => {
 
         if (response.data.data !== null) {
           localStorage.setItem("token", response.data.data.Token);
+          localStorage.setItem("user", response.data.data.ID);
         }
 
         // localStorage.setItem("token", token);
@@ -42,7 +44,7 @@ export const postLogin = (payload) => {
         // dispacth(allStore.setError(err.response.data.message));
         allStore.setError(err.response.data.message);
       })
-      .finally((_) => dispacth(allStore.setError({})));
+      .finally((_) => dispacth(allStore.setLoading(false)), dispacth(allStore.setError({})));
   };
 };
 

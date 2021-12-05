@@ -5,7 +5,7 @@ export const fetchHomestayDetail = (id) => {
   return (dispatch) => {
     dispatch(allStore.setLoading(true));
     axios
-      .get(`http://18.141.192.116/homestays/${id}`)
+      .get(`http://54.179.25.66/homestays/${id}`)
       .then((data) => {
         console.log(data.data.data);
         dispatch(setHomestayDetail(data.data.data));

@@ -1,5 +1,5 @@
 import "./form-user.css";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ const FormUser = () => {
   const [Phone_Number, setPhone_Number] = useState("");
 
   const detailUser = useSelector((user) => user.user);
+  const loading = useSelector(({ loading }) => loading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -53,7 +54,7 @@ const FormUser = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete("http://18.141.192.116/jwt/users", config)
+          .delete("http://54.179.25.66/jwt/users", config)
           .then((response) => {
             localStorage.removeItem("token");
             if (response.data.data !== null) {
@@ -75,6 +76,18 @@ const FormUser = () => {
       }
     });
   };
+
+  if (loading) {
+    return (
+      <div className="bg-danger d-flex justify-content-center align-items-center flex-column" style={{ height: "100vh", opacity: "0.1" }}>
+        <Spinner animation="border" />
+        <h1 className="text-center text-white" style={{ margin: "auto" }}>
+          PLEASE WAIT ...
+        </h1>
+        <Spinner animation="grow" />
+      </div>
+    );
+  }
 
   return (
     <>
