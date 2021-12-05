@@ -7,6 +7,7 @@ import { fetchHomestay, setHomestay } from "./Homestay/listHome.js";
 import { fetchHomestayDetail, setHomestayDetail } from "./Homestay/getDetailHomestay.js";
 import { fetchRooms, setRooms } from "./Homestay/listRoom";
 import { addHomestay, setAddHomestay } from "./Homestay/addHomestay.js";
+import { addRoom, setAddRoom } from "./Homestay/addRoom.js";
 
 const allStore = {
   postLogin,
@@ -28,6 +29,9 @@ const allStore = {
   //Add homestay
   addHomestay,
   setAddHomestay,
+  //Add Room
+  addRoom,
+  setAddRoom,
 };
 
 export default allStore;

@@ -66,7 +66,7 @@ const FormAddHomestay = () => {
             <Form onSubmit={(event) => handleSubmit(event)}>
               <Form.Group className="mb-3" controlId="nama">
                 <Form.Label>Nama Homestay</Form.Label>
-                <Form.Control placeholder="Nama Homestay" value={nama} onChange={(event) => setNama(event.target.value)} />
+                <Form.Control placeholder="Nama Homestay" autoComplete="off" value={nama} onChange={(event) => setNama(event.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="kota_id">
@@ -120,7 +120,7 @@ const FormAddHomestay = () => {
 
               <Form.Group className="mb-3" controlId="alamat">
                 <Form.Label>Alamat</Form.Label>
-                <Form.Control placeholder="Alamat" value={alamat} onChange={(event) => setAlamat(event.target.value)} />
+                <Form.Control placeholder="Alamat" autoComplete="off" value={alamat} onChange={(event) => setAlamat(event.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="file-homestay" className="d-flex flex-column">

@@ -1,5 +1,5 @@
 import "./form-user.css";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,6 @@ import swal from "sweetalert";
 import axios from "axios";
 import allStore from "../../../store/actions/index.js";
 import NavBarPage from "../navbarPage";
-import { Spinner } from "react-bootstrap";
 
 const FormUser = () => {
   const [Nama, setNama] = useState("");

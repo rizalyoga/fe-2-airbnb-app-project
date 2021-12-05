@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./detail-hotel.css";
-import img from "../../../assets/banner.jpg";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Col, Row } from "react-bootstrap";
 import NavBarPage from "../../component/navbarPage";
@@ -97,7 +96,7 @@ const DetailHotel = () => {
                             <p className="desc mt-2">{element.Deskripsi}</p>
                             <p className="desc ">{`${element.Total_Penghuni} orang`}</p>
                             <p className="desc ">{`Rp ${element.Harga},00`}</p>
-                            <button className="btn btn-danger" onClick={() => toNavigateRoom(element.ID)}>
+                            <button className="btn btn-danger " size="sm" onClick={() => toNavigateRoom(element.ID)}>
                               Reserve
                             </button>
                           </Col>

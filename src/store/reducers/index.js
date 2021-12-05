@@ -6,6 +6,7 @@ import detailHomestay from "./Homestay-Reducer/detail-homestay-reduce";
 import listRooms from "./Homestay-Reducer/rooms-reduce.js";
 import loading from "./loading-reduce.js";
 import addHomestay from "./Homestay-Reducer/add-homestay-reduce.js";
+import addRoom from "./Homestay-Reducer/add-room-reduce.js";
 
 const rootReducers = combineReducers({
   login,
@@ -13,6 +14,7 @@ const rootReducers = combineReducers({
   listHomestay,
   detailHomestay,
   addHomestay,
+  addRoom,
   listRooms,
   loading,
 });
