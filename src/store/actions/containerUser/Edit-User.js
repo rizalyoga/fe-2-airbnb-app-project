@@ -1,4 +1,3 @@
-import React from "react";
 import axios from "axios";
 import allStore from "../index.js";
 import swal from "sweetalert";
@@ -32,7 +31,7 @@ export const postEditUser = (payload) => {
         // allStore.setError(err.response.data.message);
         // dispatch(allStore.setError(err.response.data.message));
       })
-      .finally((_) => dispatch(allStore.setError({})));
+      .finally((_) => dispatch(allStore.setLoading(false)), dispatch(allStore.setError({})));
   };
 };
 

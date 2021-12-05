@@ -33,19 +33,24 @@ const DetailHotel = () => {
 
   if (loading) {
     return (
-      <div className="bg-danger d-flex justify-content-center align-items-center" style={{ height: "100vh", opacity: "0.1" }}>
+      <div className="bg-danger d-flex justify-content-center align-items-center flex-column" style={{ height: "100vh", opacity: "0.1" }}>
+        <Spinner animation="border" />
         <h1 className="text-center text-white" style={{ margin: "auto" }}>
           PLEASE WAIT ...
         </h1>
-        <>
-          <Spinner animation="border" />
-          <Spinner animation="grow" />
-        </>
+        <Spinner animation="grow" />
       </div>
     );
   }
 
+  const toNavigateRoom = (data) => {
+    navigate(`/detailRoom/${data}`);
+  };
+
   const Map = () => {
+    if (!detailHomeStay.Latitude && !detailHomeStay.Longitude) {
+      return <></>;
+    }
     const position = [detailHomeStay.Latitude, detailHomeStay.Longitude];
 
     return (
@@ -77,19 +82,29 @@ const DetailHotel = () => {
             <div className="continer-room mt-3">
               <div className="list-room">
                 <div className="room-name">
-                  {listRooms.map((element, i) => (
-                    <Row className="mb-4" key={i}>
-                      <Col md="auto">
-                        <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52686735/original/e4f352ef-b970-441d-ab7d-b0655cb28e01.jpeg" alt="img-hotel" width="250px" style={{ borderRadius: "6%" }} />
-                      </Col>
-                      <Col>
-                        <h4>{element.Nama_Room}</h4>
-                        <p className="desc mt-2">{element.Deskripsi}</p>
-                        <p className="desc ">{`${element.Total_Penghuni} orang`}</p>
-                        <p className="desc ">{`Rp ${element.Harga},00`}</p>
-                      </Col>
-                    </Row>
-                  ))}
+                  {listRooms.map((element, i) => {
+                    if (element.HomeStayID !== detailHomeStay.ID) {
+                      console.log(element.HomeStayID);
+                      return <></>;
+                    } else if (element.HomeStayID === detailHomeStay.ID) {
+                      return (
+                        <Row className="mb-4" key={i}>
+                          <Col md="auto">
+                            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52686735/original/e4f352ef-b970-441d-ab7d-b0655cb28e01.jpeg" alt="img-hotel" width="250px" style={{ borderRadius: "6%" }} />
+                          </Col>
+                          <Col>
+                            <h4>{element.Nama_Room}</h4>
+                            <p className="desc mt-2">{element.Deskripsi}</p>
+                            <p className="desc ">{`${element.Total_Penghuni} orang`}</p>
+                            <p className="desc ">{`Rp ${element.Harga},00`}</p>
+                            <button className="btn btn-danger" onClick={() => toNavigateRoom(element.ID)}>
+                              Reserve
+                            </button>
+                          </Col>
+                        </Row>
+                      );
+                    }
+                  })}
                 </div>
               </div>
               <div className="map">{Map()}</div>

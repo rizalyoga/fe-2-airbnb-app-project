@@ -1,6 +1,7 @@
 import axios from "axios";
 import allStore from "../index.js";
 import swal from "sweetalert";
+// import { Spinner } from "react-bootstrap";
 
 export let token = "";
 
@@ -31,6 +32,7 @@ export const postLogin = (payload) => {
 
         if (response.data.data !== null) {
           localStorage.setItem("token", response.data.data.Token);
+          localStorage.setItem("user", response.data.data.ID);
         }
 
         // localStorage.setItem("token", token);
@@ -42,7 +44,7 @@ export const postLogin = (payload) => {
         // dispacth(allStore.setError(err.response.data.message));
         allStore.setError(err.response.data.message);
       })
-      .finally((_) => dispacth(allStore.setError({})));
+      .finally((_) => dispacth(allStore.setLoading(false)), dispacth(allStore.setError({})));
   };
 };
 

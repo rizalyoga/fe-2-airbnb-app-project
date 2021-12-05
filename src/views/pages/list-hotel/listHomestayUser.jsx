@@ -10,7 +10,7 @@ const HomestayUser = () => {
   const dispatch = useDispatch();
 
   const [userId, setUserId] = useState("");
-
+  const idKu = parseInt(localStorage.getItem("user"));
   useEffect(() => {
     dispatch(allStore.fetchHomestay());
   }, [dispatch]);
@@ -41,9 +41,9 @@ const HomestayUser = () => {
             </thead>
             <tbody>
               {listHomestay.map((el, i) => {
-                if (el.UsersID !== userId) {
+                if (el.UsersID !== idKu) {
                   return <></>;
-                } else if (el.UsersID === userId) {
+                } else if (el.UsersID === idKu) {
                   return (
                     <tr key={i}>
                       <td className="text-center " style={{ fontSize: "130%" }}>

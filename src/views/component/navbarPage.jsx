@@ -15,6 +15,7 @@ const NavBarPage = () => {
   const logout = () => {
     navigate("/");
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     // window.location.reload();
   };
   const navbaractionpage = () => {

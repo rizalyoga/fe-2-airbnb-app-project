@@ -11,8 +11,8 @@ function MyVerticallyCenteredModalLogin(props) {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-  const errorMsg = useSelector((setError) => setError);
-  const loading = useSelector((setLoading) => setLoading);
+  // const errorMsg = useSelector((setError) => setError);
+  const loading = useSelector(({ loading }) => loading);
 
   // const returnErrMessage = () => {
   //   if (errorMsg) {
@@ -28,15 +28,12 @@ function MyVerticallyCenteredModalLogin(props) {
     console.log("1.masuk Handle Submit");
     dispatch(allStore.postLogin({ email, password }));
     if (loading) {
-      // console.log("MASUK LOADING SINI");
+      console.log("lagi loading nih");
       return (
-        <Modal size="xs" aria-labelledby="contained-modal-title-vcenter" centered>
-          <div className="form-container sign-in-container">
-            <Modal.Body>
-              <Spinner animation="border" />
-            </Modal.Body>
-          </div>
-        </Modal>
+        <div className="bg-danger d-flex justify-content-center align-items-center flex-column" style={{ height: "100vh", opacity: "0.1" }}>
+          <Spinner animation="border" />
+          <Spinner animation="grow" />
+        </div>
       );
     }
   };

@@ -7,6 +7,7 @@ import swal from "sweetalert";
 import axios from "axios";
 import allStore from "../../../store/actions/index.js";
 import NavBarPage from "../navbarPage";
+import { Spinner } from "react-bootstrap";
 
 const FormUser = () => {
   const [Nama, setNama] = useState("");
@@ -14,6 +15,7 @@ const FormUser = () => {
   const [Phone_Number, setPhone_Number] = useState("");
 
   const detailUser = useSelector((user) => user.user);
+  const loading = useSelector(({ loading }) => loading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -75,6 +77,18 @@ const FormUser = () => {
       }
     });
   };
+
+  if (loading) {
+    return (
+      <div className="bg-danger d-flex justify-content-center align-items-center flex-column" style={{ height: "100vh", opacity: "0.1" }}>
+        <Spinner animation="border" />
+        <h1 className="text-center text-white" style={{ margin: "auto" }}>
+          PLEASE WAIT ...
+        </h1>
+        <Spinner animation="grow" />
+      </div>
+    );
+  }
 
   return (
     <>
