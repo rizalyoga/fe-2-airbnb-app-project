@@ -1,52 +1,9 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { Card } from "react-bootstrap";
 import "./card-coba.css";
 
 const CardCoba = (props) => {
-  const [hotel] = useState([
-    {
-      nama: "Gardenia",
-      harga: "200000",
-      image: "https://www.tourismupdate.co.za/sites/default/files/images/article/202103/houghtonhotel.jpg",
-    },
-    {
-      nama: "Mawar",
-      harga: "200000",
-      image: "https://www.tourismupdate.co.za/sites/default/files/images/article/202103/houghtonhotel.jpg",
-    },
-    {
-      nama: "Melati-Malang",
-      harga: "200000",
-      image: "https://www.tourismupdate.co.za/sites/default/files/images/article/202103/houghtonhotel.jpg",
-    },
-    {
-      nama: "Bandung-Hill",
-      harga: "200000",
-      image: "https://www.tourismupdate.co.za/sites/default/files/images/article/202103/houghtonhotel.jpg",
-    },
-    {
-      nama: "Gardenia",
-      harga: "200000",
-      image: "https://www.tourismupdate.co.za/sites/default/files/images/article/202103/houghtonhotel.jpg",
-    },
-    {
-      nama: "Mawar",
-      harga: "200000",
-      image: "https://www.tourismupdate.co.za/sites/default/files/images/article/202103/houghtonhotel.jpg",
-    },
-    {
-      nama: "Melati-Malang",
-      harga: "200000",
-      image: "https://www.tourismupdate.co.za/sites/default/files/images/article/202103/houghtonhotel.jpg",
-    },
-    {
-      nama: "Bandung-Hill",
-      harga: "200000",
-      image: "https://www.tourismupdate.co.za/sites/default/files/images/article/202103/houghtonhotel.jpg",
-    },
-  ]);
-
   const navigate = useNavigate();
 
   const toNavigate = (id) => {
@@ -70,7 +27,7 @@ const CardCoba = (props) => {
             >
               <div className="card-homstay mt-3 mx-2 mt-1">
                 <div className="hotel align-items-center rounded text-center">
-                  <img className="rounded" width="100%" height="200" src="https://www.tourismupdate.co.za/sites/default/files/images/article/202103/houghtonhotel.jpg" />
+                  <img className="rounded" width="100%" height="200" src={el.Url} />
                   <div className="mt-2 px-2 d-flex justify-content-center">
                     <h5 className="fw-normal text-center">{el.Nama}</h5>
                   </div>

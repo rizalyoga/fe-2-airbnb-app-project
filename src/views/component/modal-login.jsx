@@ -28,7 +28,7 @@ function MyVerticallyCenteredModalLogin(props) {
     console.log("1.masuk Handle Submit");
     dispatch(allStore.postLogin({ email, password }));
     if (loading) {
-      console.log("lagi loading nih");
+      // console.log("lagi loading nih");
       return (
         <div className="bg-danger d-flex justify-content-center align-items-center flex-column" style={{ height: "100vh", opacity: "0.1" }}>
           <Spinner animation="border" />

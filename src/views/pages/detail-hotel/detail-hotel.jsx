@@ -73,7 +73,7 @@ const DetailHotel = () => {
               <h3>{detailHomeStay.Nama}</h3>
               <p>{detailHomeStay.Alamat}</p>
               <div className="hotel-pict">
-                <img src={img} alt="gambar" width="100%" />
+                <img src={detailHomeStay.Url} alt="gambar" width="100%" />
               </div>
             </div>
             <div className="select-room mt-5">
@@ -84,13 +84,13 @@ const DetailHotel = () => {
                 <div className="room-name">
                   {listRooms.map((element, i) => {
                     if (element.HomeStayID !== detailHomeStay.ID) {
-                      console.log(element.HomeStayID);
+                      console.log(typeof element.HomeStayID);
                       return <></>;
                     } else if (element.HomeStayID === detailHomeStay.ID) {
                       return (
                         <Row className="mb-4" key={i}>
                           <Col md="auto">
-                            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52686735/original/e4f352ef-b970-441d-ab7d-b0655cb28e01.jpeg" alt="img-hotel" width="250px" style={{ borderRadius: "6%" }} />
+                            <img src={element.Url} alt="img-hotel" width="250px" style={{ borderRadius: "6%" }} />
                           </Col>
                           <Col>
                             <h4>{element.Nama_Room}</h4>

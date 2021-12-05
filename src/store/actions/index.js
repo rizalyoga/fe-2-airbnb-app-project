@@ -6,6 +6,7 @@ import { postEditUser, setEditUser } from "./containerUser/Edit-User.js";
 import { fetchHomestay, setHomestay } from "./Homestay/listHome.js";
 import { fetchHomestayDetail, setHomestayDetail } from "./Homestay/getDetailHomestay.js";
 import { fetchRooms, setRooms } from "./Homestay/listRoom";
+import { addHomestay, setAddHomestay } from "./Homestay/addHomestay.js";
 
 const allStore = {
   postLogin,
@@ -24,6 +25,9 @@ const allStore = {
   //get all rooms
   fetchRooms,
   setRooms,
+  //Add homestay
+  addHomestay,
+  setAddHomestay,
 };
 
 export default allStore;
